@@ -161,25 +161,13 @@ if __name__ == '__main__':
     print("\n" + "=" * 70)
     print("  🚀 SUNCOM TECHNOLOGIES - WEBSITE SERVER")
     print("=" * 70)
-    print(f"\n  📁 Script location: {os.path.abspath(__file__)}")
-    print(f"  📂 Working directory: {os.getcwd()}")
-    print(f"  📄 Files in directory: {', '.join(os.listdir('.'))}")
-    print("\n  🌐 Server URLs:")
-    print("     • http://localhost:5000")
-    print("     • http://127.0.0.1:5000")
-    print("     • http://0.0.0.0:5000")
-    print("\n  🧪 Test endpoints:")
-    print("     • http://localhost:5000/test")
-    print("     • http://localhost:5000/health")
-    print("\n  ⚡ Press Ctrl+C to stop")
-    print("=" * 70 + "\n")
 
     # Try multiple configurations
     try:
         app.run(
             debug=True,
             host='0.0.0.0',  # Listen on all interfaces
-            port=8003,
+            port=8000,
             use_reloader=True,
             threaded=True
         )
