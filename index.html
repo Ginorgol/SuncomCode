@@ -83,158 +83,8 @@
             gap: 1rem;
         }
 
-        /* Products Dropdown */
-        .products-dropdown {
-            position: relative;
-        }
-
-        .products-btn {
-            background: var(--secondary);
-            color: white;
-            padding: 0.7rem 1.8rem;
-            border-radius: 25px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s;
-            display: inline-block;
-            box-shadow: 0 4px 15px rgba(0, 0, 102, 0.2);
-            cursor: pointer;
-        }
-
-        .products-btn:hover {
-            background: var(--primary);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0, 0, 102, 0.3);
-        }
-
-        .products-menu {
-            display: none;
-            position: absolute;
-            top: 100%;
-            right: 0;
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
-            width: 900px;
-            max-height: 80vh;
-            overflow-y: auto;
-            z-index: 1001;
-            margin-top: 0.5rem;
-            animation: dropdownSlide 0.3s ease;
-        }
-
-        /* Add invisible bridge to prevent gap */
-        .products-dropdown::after {
-            content: '';
-            position: absolute;
-            top: 100%;
-            left: 0;
-            right: 0;
-            height: 0.5rem;
-        }
-
-        @keyframes dropdownSlide {
-            from {
-                opacity: 0;
-                transform: translateY(-10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .products-menu-header {
-            padding: 2rem;
-            background: linear-gradient(135deg, var(--secondary), var(--accent));
-            color: white;
-            border-radius: 15px 15px 0 0;
-        }
-
-        .products-menu-header h3 {
-            font-size: 1.5rem;
-            margin-bottom: 0.8rem;
-            font-weight: 700;
-        }
-
-        .products-menu-header p {
-            font-size: 0.9rem;
-            line-height: 1.6;
-            opacity: 0.95;
-        }
-
-        .products-grid-menu {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
-            padding: 1.5rem;
-        }
-
-        .product-menu-item {
-            padding: 1rem;
-            background: #F9FAFB;
-            border-radius: 10px;
-            border-left: 3px solid var(--primary);
-            transition: all 0.3s;
-        }
-
-        .product-menu-item:hover {
-            background: white;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            transform: translateX(5px);
-        }
-
-        .product-menu-item strong {
-            display: block;
-            color: var(--secondary);
-            font-size: 0.9rem;
-            margin-bottom: 0.4rem;
-        }
-
-        .product-menu-item p {
-            color: var(--gray);
-            font-size: 0.8rem;
-            line-height: 1.5;
-            margin: 0;
-        }
-
-        .products-menu-footer {
-            padding: 1.5rem 2rem;
-            background: linear-gradient(135deg, #F0F9FF 0%, #E0F2FE 100%);
-            border-top: 2px solid rgba(0, 0, 102, 0.1);
-            text-align: center;
-            border-radius: 0 0 15px 15px;
-        }
-
-        .products-menu-footer p {
-            font-size: 0.95rem;
-            color: var(--gray);
-            margin-bottom: 1rem;
-            font-weight: 500;
-        }
-
-        .products-menu-cta {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: var(--primary);
-            color: white;
-            padding: 0.8rem 2rem;
-            border-radius: 25px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.9rem;
-            transition: all 0.3s;
-        }
-
-        .products-menu-cta:hover {
-            background: var(--secondary);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(255, 140, 66, 0.3);
-        }
-
         .nav-cta {
-            background: var(--primary);
+            background: var(--secondary);
             color: white;
             padding: 0.7rem 1.8rem;
             border-radius: 25px;
@@ -244,9 +94,9 @@
         }
 
         .nav-cta:hover {
-            background: var(--secondary);
+            background: var(--primary);
             transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(255, 140, 66, 0.3);
+            box-shadow: 0 4px 12px rgba(0, 0, 102, 0.3);
         }
 
         /* Mobile Menu */
@@ -285,6 +135,12 @@
             width: 100%;
         }
 
+        @media (min-width: 1920px) {
+            .hero-container {
+                max-width: 2000px;
+            }
+        }
+
         .hero-image-section {
             order: -1;
             position: relative;
@@ -294,9 +150,8 @@
             position: relative;
             width: 100%;
             max-width: none;
-            height: 60vh;
-            min-height: 500px;
-            max-height: 700px;
+            height: 72vh;
+            min-height: 600px;
             overflow: hidden;
             border-radius: 20px;
             box-shadow: 0 20px 60px rgba(0, 0, 102, 0.3);
@@ -316,7 +171,54 @@
             font-size: 3rem;
             font-weight: 800;
             text-align: center;
-            padding: 3rem;
+            padding: 0;
+        }
+
+        .carousel-slide .slide-image {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            object-position: center;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0.75;
+        }
+
+        .carousel-slide .slide-overlay-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: clamp(3rem, 8vw, 7rem);
+            font-weight: 900;
+            color: white;
+            text-shadow: 0 4px 30px rgba(0, 0, 0, 0.5),
+                         0 8px 60px rgba(0, 0, 0, 0.3);
+            letter-spacing: -2px;
+            z-index: 2;
+            white-space: nowrap;
+            pointer-events: none;
+        }
+
+        /* Hide overlay text when image fails and fallback is shown */
+        .carousel-slide.image-error .slide-overlay-text {
+            display: none;
+        }
+
+        .carousel-slide.image-error .slide-content-fallback {
+            display: flex !important;
+        }
+
+        .carousel-slide .slide-content-fallback {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            position: relative;
+            z-index: 1;
         }
 
         .carousel-slide.active {
@@ -410,14 +312,14 @@
         .hero-content h1 {
             font-size: clamp(2rem, 4vw, 3.5rem);
             font-weight: 800;
-            color: var(--secondary);
+            color: var(--primary);
             line-height: 1.1;
             margin-bottom: 1.5rem;
         }
 
         .hero-content .tagline {
             font-size: clamp(1.2rem, 2vw, 1.5rem);
-            color: var(--primary);
+            color: var(--secondary);
             font-weight: 700;
             margin-bottom: 1.5rem;
         }
@@ -436,7 +338,7 @@
         }
 
         .btn-primary {
-            background: var(--primary);
+            background: var(--secondary);
             color: white;
             padding: 1rem 2.5rem;
             border-radius: 30px;
@@ -447,9 +349,9 @@
         }
 
         .btn-primary:hover {
-            background: var(--secondary);
+            background: var(--primary);
             transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(255, 140, 66, 0.3);
+            box-shadow: 0 10px 25px rgba(0, 0, 102, 0.3);
         }
 
         .btn-secondary {
@@ -472,6 +374,19 @@
         /* Section Styles */
         section {
             padding: 5rem 2rem;
+        }
+
+        /* Increase padding on larger screens */
+        @media (min-width: 1400px) {
+            section {
+                padding: 5rem 4rem;
+            }
+        }
+
+        @media (min-width: 1800px) {
+            section {
+                padding: 5rem 6rem;
+            }
         }
 
         .section-header {
@@ -499,6 +414,27 @@
             margin: 0 auto;
         }
 
+        /* Larger container for services and products on big screens */
+        .services-section .container {
+            max-width: 1400px;
+        }
+
+        .industries-section .container {
+            max-width: 1400px;
+        }
+
+        /* Scale up only on ultra-wide screens */
+        @media (min-width: 1920px) {
+            .container {
+                max-width: 1400px;
+            }
+
+            .services-section .container,
+            .industries-section .container {
+                max-width: 2000px;
+            }
+        }
+
         /* Services Section - NEW DESIGN */
         .services-section {
             background: var(--light);
@@ -518,7 +454,29 @@
             grid-template-columns: repeat(3, 1fr);
             gap: 2rem;
             margin-bottom: 3rem;
-            justify-items: center;
+        }
+
+        /* Products grid - handles 10 items with proper centering */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        /* Increase gap on larger screens */
+        @media (min-width: 1400px) {
+            .services-grid,
+            .products-grid {
+                gap: 2.5rem;
+            }
+        }
+
+        @media (min-width: 1920px) {
+            .services-grid,
+            .products-grid {
+                gap: 4rem;
+            }
         }
 
         .service-card {
@@ -529,7 +487,6 @@
             transition: all 0.3s;
             cursor: pointer;
             width: 100%;
-            max-width: 400px;
         }
 
         /* Center the last two cards on larger screens */
@@ -551,6 +508,15 @@
             .services-grid .service-card:nth-child(5) {
                 grid-column: 4 / 6;
             }
+
+            /* Products grid - 10 items with last row centered */
+            .products-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .products-grid .service-card:nth-child(10) {
+                grid-column: 2 / 3;
+            }
         }
 
         .service-card:hover {
@@ -560,13 +526,23 @@
 
         .service-icon {
             height: 120px;
-            background: linear-gradient(135deg, var(--secondary), var(--accent));
+            background: linear-gradient(135deg, #FF914D, #FFA500);
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 3.5rem;
             position: relative;
             overflow: hidden;
+        }
+
+        .service-icon img {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+        }
+
+        .service-icon .fallback-emoji {
+            font-size: 3.5rem;
         }
 
         .service-content {
@@ -618,7 +594,19 @@
             grid-template-columns: repeat(3, 1fr);
             gap: 2rem;
             margin-bottom: 3rem;
-            justify-items: center;
+        }
+
+        /* Increase gap on larger screens for industries */
+        @media (min-width: 1400px) {
+            .industries-grid {
+                gap: 2.5rem;
+            }
+        }
+
+        @media (min-width: 1920px) {
+            .industries-grid {
+                gap: 4rem;
+            }
         }
 
         .industry-card {
@@ -629,7 +617,6 @@
             transition: all 0.3s;
             cursor: pointer;
             width: 100%;
-            max-width: 400px;
         }
 
         /* Center the last two cards on larger screens */
@@ -664,7 +651,7 @@
 
         .industry-icon {
             height: 120px;
-            background: linear-gradient(135deg, var(--secondary), var(--accent));
+            background: linear-gradient(135deg, #FF914D, #FFA500);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -892,7 +879,7 @@
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            background: var(--primary);
+            background: var(--secondary);
             color: white;
             padding: 1rem 2.5rem;
             border-radius: 30px;
@@ -902,9 +889,9 @@
         }
 
         .explore-cta:hover {
-            background: var(--secondary);
+            background: var(--primary);
             transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(255, 140, 66, 0.3);
+            box-shadow: 0 10px 25px rgba(0, 0, 102, 0.3);
         }
 
         /* Why Choose Us Section */
@@ -920,6 +907,13 @@
             align-items: center;
             max-width: 1400px;
             margin: 0 auto;
+        }
+
+        @media (min-width: 1920px) {
+            .why-container {
+                max-width: 2000px;
+                gap: 7rem;
+            }
         }
 
         .why-images {
@@ -1055,6 +1049,16 @@
             background: var(--light);
         }
 
+        .clients-section .container {
+            max-width: 1400px;
+        }
+
+        @media (min-width: 1920px) {
+            .clients-section .container {
+                max-width: 2000px;
+            }
+        }
+
         .clients-grid {
             display: grid;
             grid-template-columns: repeat(6, 1fr);
@@ -1082,6 +1086,16 @@
         }
 
         /* Partners Section */
+        .partners-container {
+            max-width: 1800px;
+        }
+
+        @media (min-width: 1920px) {
+            .partners-container {
+                max-width: 2200px;
+            }
+        }
+
         .partners-grid {
             overflow: hidden;
             position: relative;
@@ -1158,6 +1172,13 @@
             margin: 0 auto;
         }
 
+        @media (min-width: 1920px) {
+            .contact-container {
+                max-width: 1600px;
+                gap: 6rem;
+            }
+        }
+
         .contact-info h3 {
             font-size: 1.5rem;
             margin-bottom: 1.5rem;
@@ -1211,7 +1232,7 @@
 
         .submit-btn {
             width: 100%;
-            background: var(--primary);
+            background: var(--secondary);
             color: white;
             padding: 1rem;
             border: none;
@@ -1223,7 +1244,7 @@
         }
 
         .submit-btn:hover {
-            background: var(--secondary);
+            background: var(--primary);
             transform: translateY(-2px);
         }
 
@@ -1247,8 +1268,8 @@
             }
 
             .carousel-container {
-                height: 55vh;
-                min-height: 450px;
+                height: 66vh;
+                min-height: 540px;
             }
         }
 
@@ -1258,8 +1279,8 @@
             }
 
             .carousel-container {
-                height: 50vh;
-                min-height: 400px;
+                height: 60vh;
+                min-height: 480px;
             }
 
             .hero-content {
@@ -1278,8 +1299,8 @@
             }
 
             .carousel-container {
-                height: 60vh;
-                max-height: 500px;
+                height: 72vh;
+                max-height: 600px;
             }
 
             .hero-content {
@@ -1294,8 +1315,16 @@
                 grid-template-columns: 1fr;
             }
 
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+
             .service-card:nth-child(4),
             .service-card:nth-child(5) {
+                grid-column: auto;
+            }
+
+            .products-grid .service-card:nth-child(10) {
                 grid-column: auto;
             }
 
@@ -1340,77 +1369,11 @@
                 align-items: stretch;
             }
 
-            .products-dropdown {
-                width: 100%;
-            }
-
-            .products-btn {
-                width: 100%;
-                text-align: center;
-                padding: 0.6rem 1.2rem;
-                font-size: 0.9rem;
-            }
-
             .nav-cta {
                 width: 100%;
                 text-align: center;
                 padding: 0.6rem 1.2rem;
                 font-size: 0.9rem;
-            }
-
-            .products-menu {
-                position: fixed;
-                top: auto;
-                right: auto;
-                left: 0;
-                right: 0;
-                width: 100%;
-                max-height: 70vh;
-                margin-top: 0;
-                border-radius: 0 0 15px 15px;
-            }
-
-            .products-menu-header {
-                padding: 1.5rem;
-            }
-
-            .products-menu-header h3 {
-                font-size: 1.2rem;
-            }
-
-            .products-menu-header p {
-                font-size: 0.85rem;
-            }
-
-            .products-grid-menu {
-                grid-template-columns: 1fr;
-                gap: 0.8rem;
-                padding: 1rem;
-            }
-
-            .product-menu-item {
-                padding: 0.8rem;
-            }
-
-            .product-menu-item strong {
-                font-size: 0.85rem;
-            }
-
-            .product-menu-item p {
-                font-size: 0.75rem;
-            }
-
-            .products-menu-footer {
-                padding: 1rem;
-            }
-
-            .products-menu-footer p {
-                font-size: 0.85rem;
-            }
-
-            .products-menu-cta {
-                padding: 0.7rem 1.5rem;
-                font-size: 0.85rem;
             }
         }
 
@@ -1438,78 +1401,10 @@
                 gap: 0.5rem;
             }
 
-            .products-dropdown {
-                width: 100%;
-            }
-
-            .products-btn {
-                width: 100%;
-                padding: 0.6rem 1rem;
-                font-size: 0.9rem;
-            }
-
             .nav-cta {
                 width: 100%;
                 padding: 0.6rem 1rem;
                 font-size: 0.9rem;
-            }
-
-            .products-menu {
-                position: fixed;
-                top: auto;
-                left: 0;
-                right: 0;
-                width: 100%;
-                max-height: 70vh;
-                margin-top: 0;
-                border-radius: 0;
-            }
-
-            .products-menu-header {
-                padding: 1.2rem;
-            }
-
-            .products-menu-header h3 {
-                font-size: 1.1rem;
-            }
-
-            .products-menu-header p {
-                font-size: 0.8rem;
-                line-height: 1.4;
-            }
-
-            .products-grid-menu {
-                grid-template-columns: 1fr;
-                gap: 0.7rem;
-                padding: 0.8rem;
-            }
-
-            .product-menu-item {
-                padding: 0.7rem 0.8rem;
-            }
-
-            .product-menu-item strong {
-                font-size: 0.8rem;
-                line-height: 1.3;
-            }
-
-            .product-menu-item p {
-                font-size: 0.7rem;
-                line-height: 1.3;
-            }
-
-            .products-menu-footer {
-                padding: 0.8rem;
-            }
-
-            .products-menu-footer p {
-                font-size: 0.8rem;
-                margin-bottom: 0.6rem;
-            }
-
-            .products-menu-cta {
-                padding: 0.6rem 1.2rem;
-                font-size: 0.8rem;
             }
 
             .hero {
@@ -1529,13 +1424,17 @@
                 font-size: 1.2rem;
             }
 
+            .carousel-slide .slide-overlay-text {
+                font-size: clamp(2rem, 10vw, 3rem);
+            }
+
             .carousel-slide .slide-text {
                 font-size: 2rem;
             }
 
             .carousel-container {
-                height: 50vh;
-                min-height: 350px;
+                height: 60vh;
+                min-height: 420px;
             }
 
             .modal-content {
@@ -1557,67 +1456,13 @@
             </div>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
+                <li><a href="#products">Products</a></li>
                 <li><a href="#services">Services</a></li>
                 <li><a href="#industries">Industries</a></li>
                 <li><a href="#clients">Clients</a></li>
                 <li><a href="#partners">Partners</a></li>
             </ul>
             <div class="nav-right">
-                <div class="products-dropdown">
-                    <a href="#products" class="products-btn">Products ▾</a>
-                    <div class="products-menu">
-                        <div class="products-menu-header">
-                            <h3>Top Enterprise Products We Deliver</h3>
-                            <p>Suncom Technologies supplies genuine, enterprise-grade IT products from the world's leading brands. Every solution includes certified installation, configuration, and reliable after-sales support for Indian corporate, mid-size businesses, growing and large enterprises.</p>
-                        </div>
-                        <div class="products-grid-menu">
-                            <div class="product-menu-item">
-                                <strong>1. Microsoft Windows OS & Office 365 Licensing</strong>
-                                <p>Authorized reseller for genuine Microsoft Windows 11 Pro, Office 365 and Microsoft 365 licenses for businesses.</p>
-                            </div>
-                            <div class="product-menu-item">
-                                <strong>2. Fortinet Next-Generation Firewalls</strong>
-                                <p>Advanced FortiGate firewalls with IPS, VPN, SD-WAN, Web Filtering, app control and real-time threat protection for secure enterprise networks.</p>
-                            </div>
-                            <div class="product-menu-item">
-                                <strong>3. Logitech Video Conferencing Solutions</strong>
-                                <p>Professional video conferencing systems for boardrooms, huddle rooms and hybrid teams. Includes: Logitech Rally Bar, MeetUp, PTZ webcams, speakerphones</p>
-                            </div>
-                            <div class="product-menu-item">
-                                <strong>4. HPE Aruba Switches & Wireless Access Points</strong>
-                                <p>Fast, secure and seamless enterprise Switches & Wi-Fi Access point with high-density performance for corporate offices.</p>
-                            </div>
-                            <div class="product-menu-item">
-                                <strong>5. Cisco & Meraki Routers & Switches</strong>
-                                <p>Enterprise-grade routing and switching with Meraki's cloud-managed dashboards for centralized control.</p>
-                            </div>
-                            <div class="product-menu-item">
-                                <strong>6. APC Online UPS & Power Solutions</strong>
-                                <p>Pure, uninterrupted power for servers, networks and IT rooms to prevent downtime and equipment failure.</p>
-                            </div>
-                            <div class="product-menu-item">
-                                <strong>7. Grandstream Access Point, IP Phones & VoIP Systems</strong>
-                                <p>Reliable SIP phones for offices, call centers and customer service teams.</p>
-                            </div>
-                            <div class="product-menu-item">
-                                <strong>8. Apple MacBook Business Devices</strong>
-                                <p>High-performance Apple MacBooks with M-series processors designed for executives, creators and business professionals.</p>
-                            </div>
-                            <div class="product-menu-item">
-                                <strong>9. Synology NAS & Backup Storage Solutions</strong>
-                                <p>Secure NAS devices for backup, private cloud, central storage and business continuity.</p>
-                            </div>
-                            <div class="product-menu-item">
-                                <strong>10. Refurbished Cisco Switches – Grade-A</strong>
-                                <p>Cost-effective, warranty-backed Cisco switches ideal for enterprise networks needing performance with lower budgets.</p>
-                            </div>
-                        </div>
-                        <div class="products-menu-footer">
-                            <p>We have many other offerings, for custom solutions reach out to us</p>
-                            <a href="#contact" class="products-menu-cta">Contact Us →</a>
-                        </div>
-                    </div>
-                </div>
                 <a href="#contact" class="nav-cta">Contact Us</a>
             </div>
             <div class="mobile-toggle">
@@ -1634,16 +1479,28 @@
             <div class="hero-image-section">
                 <div class="carousel-container">
                     <div class="carousel-slide slide-build active">
-                        <div class="slide-icon">🏗️</div>
-                        <div class="slide-text">We Build</div>
+                        <img src="/static/banners/build.png" alt="We Build" class="slide-image" onerror="this.style.display='none'; this.parentElement.classList.add('image-error');">
+                        <div class="slide-overlay-text">We Build</div>
+                        <div class="slide-content-fallback" style="display:none;">
+                            <div class="slide-icon">🏗️</div>
+                            <div class="slide-text">We Build</div>
+                        </div>
                     </div>
                     <div class="carousel-slide slide-manage">
-                        <div class="slide-icon">⚙️</div>
-                        <div class="slide-text">We Manage</div>
+                        <img src="/static/banners/manage.png" alt="We Manage" class="slide-image" onerror="this.style.display='none'; this.parentElement.classList.add('image-error');">
+                        <div class="slide-overlay-text">We Manage</div>
+                        <div class="slide-content-fallback" style="display:none;">
+                            <div class="slide-icon">⚙️</div>
+                            <div class="slide-text">We Manage</div>
+                        </div>
                     </div>
                     <div class="carousel-slide slide-secure">
-                        <div class="slide-icon">🔒</div>
-                        <div class="slide-text">We Secure IT</div>
+                        <img src="/static/banners/secure.png" alt="We Secure IT" class="slide-image" onerror="this.style.display='none'; this.parentElement.classList.add('image-error');">
+                        <div class="slide-overlay-text">We Secure IT</div>
+                        <div class="slide-content-fallback" style="display:none;">
+                            <div class="slide-icon">🔒</div>
+                            <div class="slide-text">We Secure IT</div>
+                        </div>
                     </div>
                     <div class="carousel-dots">
                         <span class="dot active" data-slide="0"></span>
@@ -1653,15 +1510,151 @@
                 </div>
             </div>
             <div class="hero-content">
-                <h1>IT Solutions Under The Sun</h1>
+                <h1>IT Solutions for all your needs.</h1>
                 <div class="tagline">Build. Manage. Secure IT</div>
                 <p>Suncom Technologies was founded in <strong>2001</strong> by a group of experienced and motivated professionals with deep expertise in the field of IT, where <strong>lightning-fast, top-tier customer support is combined with best-in-class hardware and software expertise</strong>. We take pride in swiftly resolving IT-related challenges, ensuring minimal disruption to business operations.</p>
                 <p>Our highly trained team stays ahead of the technology curve, enabling us to deliver <strong>fast, reliable, and future-ready IT solutions</strong> that businesses can depend on with confidence.</p>
                 <p>At Suncom Technologies, we guarantee <strong>peace of mind</strong> by serving as a <strong>trusted IT ally</strong> for all hardware and software needs. Experience the efficiency of our dedicated team, committed to providing quick, precise, and dependable IT support.</p>
                 <div class="hero-buttons">
-                    <a href="#services" class="btn-primary">Our Services</a>
-                    <a href="#contact" class="btn-secondary">Get Started</a>
+                    <a href="#contact" class="btn-primary">Get Started</a>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="services-section" id="products">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Products</h2>
+                <p>Enterprise-Grade IT Hardware & Software from Leading Global Brands</p>
+            </div>
+            <p class="services-intro">Suncom Technologies supplies genuine, enterprise-grade IT products from the world's leading brands. Every solution includes certified installation, configuration, and reliable after-sales support for Indian corporate, mid-size businesses, and large enterprises.</p>
+
+            <div class="products-grid">
+                <a href="/products/microsoft" class="service-card" style="text-decoration: none; color: inherit;">
+                    <div class="service-icon">
+                        <img src="/static/products/microsoft.png" alt="Microsoft Licensing" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <span class="fallback-emoji" style="display:none;">💼</span>
+                    </div>
+                    <div class="service-content">
+                        <h3>Microsoft Windows OS & Office 365</h3>
+                        <p>Authorized reseller for genuine Microsoft Windows 11 Pro, Office 365 and Microsoft 365 licenses for businesses.</p>
+                        <span class="service-cta">Learn More →</span>
+                    </div>
+                </a>
+
+                <a href="/products/fortinet" class="service-card" style="text-decoration: none; color: inherit;">
+                    <div class="service-icon">
+                        <img src="/static/products/fortinet.png" alt="Fortinet Firewalls" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <span class="fallback-emoji" style="display:none;">🛡️</span>
+                    </div>
+                    <div class="service-content">
+                        <h3>Fortinet Next-Generation Firewalls</h3>
+                        <p>Advanced FortiGate firewalls with IPS, VPN, SD-WAN, Web Filtering for secure enterprise networks.</p>
+                        <span class="service-cta">Learn More →</span>
+                    </div>
+                </a>
+
+                <a href="/products/logitech" class="service-card" style="text-decoration: none; color: inherit;">
+                    <div class="service-icon">
+                        <img src="/static/products/logitech.png" alt="Logitech Video Conferencing" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <span class="fallback-emoji" style="display:none;">📹</span>
+                    </div>
+                    <div class="service-content">
+                        <h3>Logitech Video Conferencing</h3>
+                        <p>Professional video conferencing systems for boardrooms, huddle rooms and hybrid teams.</p>
+                        <span class="service-cta">Learn More →</span>
+                    </div>
+                </a>
+
+                <a href="/products/aruba" class="service-card" style="text-decoration: none; color: inherit;">
+                    <div class="service-icon">
+                        <img src="/static/products/aruba.png" alt="HPE Aruba" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <span class="fallback-emoji" style="display:none;">📡</span>
+                    </div>
+                    <div class="service-content">
+                        <h3>HPE Aruba Switches & Access Points</h3>
+                        <p>Fast, secure enterprise switches & Wi-Fi access points with high-density performance.</p>
+                        <span class="service-cta">Learn More →</span>
+                    </div>
+                </a>
+
+                <a href="/products/cisco" class="service-card" style="text-decoration: none; color: inherit;">
+                    <div class="service-icon">
+                        <img src="/static/products/cisco.png" alt="Cisco & Meraki" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <span class="fallback-emoji" style="display:none;">🔌</span>
+                    </div>
+                    <div class="service-content">
+                        <h3>Cisco & Meraki Routers & Switches</h3>
+                        <p>Enterprise-grade routing and switching with Meraki's cloud-managed dashboards.</p>
+                        <span class="service-cta">Learn More →</span>
+                    </div>
+                </a>
+
+                <a href="/products/apc" class="service-card" style="text-decoration: none; color: inherit;">
+                    <div class="service-icon">
+                        <img src="/static/products/apc.png" alt="APC UPS" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <span class="fallback-emoji" style="display:none;">⚡</span>
+                    </div>
+                    <div class="service-content">
+                        <h3>APC Online UPS & Power Solutions</h3>
+                        <p>Pure, uninterrupted power for servers, networks and IT rooms to prevent downtime.</p>
+                        <span class="service-cta">Learn More →</span>
+                    </div>
+                </a>
+
+                <a href="/products/grandstream" class="service-card" style="text-decoration: none; color: inherit;">
+                    <div class="service-icon">
+                        <img src="/static/products/grandstream.png" alt="Grandstream" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <span class="fallback-emoji" style="display:none;">📞</span>
+                    </div>
+                    <div class="service-content">
+                        <h3>Grandstream IP Phones & VoIP</h3>
+                        <p>Reliable SIP phones and access points for offices, call centers and customer service.</p>
+                        <span class="service-cta">Learn More →</span>
+                    </div>
+                </a>
+
+                <a href="/products/apple" class="service-card" style="text-decoration: none; color: inherit;">
+                    <div class="service-icon">
+                        <img src="/static/products/apple.png" alt="Apple MacBook" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <span class="fallback-emoji" style="display:none;">💻</span>
+                    </div>
+                    <div class="service-content">
+                        <h3>Apple MacBook Business Devices</h3>
+                        <p>High-performance MacBooks with M-series processors for executives and professionals.</p>
+                        <span class="service-cta">Learn More →</span>
+                    </div>
+                </a>
+
+                <a href="/products/synology" class="service-card" style="text-decoration: none; color: inherit;">
+                    <div class="service-icon">
+                        <img src="/static/products/synology.png" alt="Synology NAS" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <span class="fallback-emoji" style="display:none;">💾</span>
+                    </div>
+                    <div class="service-content">
+                        <h3>Synology NAS & Backup Storage</h3>
+                        <p>Secure NAS devices for backup, private cloud, central storage and business continuity.</p>
+                        <span class="service-cta">Learn More →</span>
+                    </div>
+                </a>
+
+                <a href="/products/cisco-refurbished" class="service-card" style="text-decoration: none; color: inherit;">
+                    <div class="service-icon">
+                        <img src="/static/products/cisco-refurb.png" alt="Refurbished Cisco" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <span class="fallback-emoji" style="display:none;">♻️</span>
+                    </div>
+                    <div class="service-content">
+                        <h3>Refurbished Cisco Switches – Grade-A</h3>
+                        <p>Cost-effective, warranty-backed Cisco switches ideal for enterprise networks on budget.</p>
+                        <span class="service-cta">Learn More →</span>
+                    </div>
+                </a>
+            </div>
+
+            <div class="explore-cta-container">
+                <a href="#contact" class="explore-cta">Get a Quote →</a>
             </div>
         </div>
     </section>
@@ -1677,7 +1670,10 @@
 
             <div class="services-grid">
                 <a href="/services/fms" class="service-card" style="text-decoration: none; color: inherit;">
-                    <div class="service-icon">🏢</div>
+                    <div class="service-icon">
+                        <img src="/static/services/fms.png" alt="Facility Management Services" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <span class="fallback-emoji" style="display:none;">🏢</span>
+                    </div>
                     <div class="service-content">
                         <h3>Facility Management Services</h3>
                         <p>Onsite IT support engineers managing your entire IT ecosystem for seamless daily operations.</p>
@@ -1686,7 +1682,10 @@
                 </a>
 
                 <a href="/services/amc" class="service-card" style="text-decoration: none; color: inherit;">
-                    <div class="service-icon">🔧</div>
+                    <div class="service-icon">
+                        <img src="/static/services/amc.png" alt="Annual Maintenance Contract" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <span class="fallback-emoji" style="display:none;">🔧</span>
+                    </div>
                     <div class="service-content">
                         <h3>Annual Maintenance Contract</h3>
                         <p>Year-round protection for your IT systems with comprehensive long-term maintenance contracts.</p>
@@ -1695,7 +1694,10 @@
                 </a>
 
                 <a href="/services/antivirus" class="service-card" style="text-decoration: none; color: inherit;">
-                    <div class="service-icon">🛡️</div>
+                    <div class="service-icon">
+                        <img src="/static/services/antivirus.png" alt="Antivirus Security Management" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <span class="fallback-emoji" style="display:none;">🛡️</span>
+                    </div>
                     <div class="service-content">
                         <h3>Antivirus Security Management</h3>
                         <p>Centralized endpoint protection safeguarding your organization from evolving cyber threats.</p>
@@ -1704,7 +1706,10 @@
                 </a>
 
                 <a href="/services/email" class="service-card" style="text-decoration: none; color: inherit;">
-                    <div class="service-icon">📧</div>
+                    <div class="service-icon">
+                        <img src="/static/services/email.png" alt="Professional Email Solutions" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <span class="fallback-emoji" style="display:none;">📧</span>
+                    </div>
                     <div class="service-content">
                         <h3>Professional Email Solutions</h3>
                         <p>Secure, business-grade communication systems with high deliverability and data protection.</p>
@@ -1713,7 +1718,10 @@
                 </a>
 
                 <a href="/services/networking" class="service-card" style="text-decoration: none; color: inherit;">
-                    <div class="service-icon">🔌</div>
+                    <div class="service-icon">
+                        <img src="/static/services/networking.png" alt="Structured Networking Solutions" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <span class="fallback-emoji" style="display:none;">🔌</span>
+                    </div>
                     <div class="service-content">
                         <h3>Structured Networking Solutions</h3>
                         <p>High-performance LAN/WAN infrastructure delivering secure connectivity across your organization.</p>
@@ -1892,11 +1900,11 @@
 
                     <div class="trust-stats">
                         <div class="trust-stat">
-                            <strong data-target="1000">0</strong>
+                            <strong data-target="500">0</strong>
                             <span>Happy Customers</span>
                         </div>
                         <div class="trust-stat">
-                            <strong data-target="5000">0</strong>
+                            <strong data-target="200">0</strong>
                             <span>Projects Completed</span>
                         </div>
                         <div class="trust-stat">
@@ -1913,7 +1921,7 @@
     <section class="clients-section" id="clients">
         <div class="container">
             <div class="section-header">
-                <h2>Our Clients</h2>
+                <h2>Our Customers</h2>
                 <p>Trusted by leading organizations across industries</p>
             </div>
             <div class="clients-grid">
@@ -1937,14 +1945,16 @@
 
     <!-- Partners Section -->
     <section id="partners">
-        <div class="container" style="max-width: 1800px;">
+        <div class="container partners-container">
             <div class="section-header">
-                <h2>Our Partners</h2>
+                <h2>Our Technology Partners</h2>
                 <p>Collaborating with industry leaders to deliver excellence</p>
             </div>
             <div class="partners-grid">
                 <div class="partners-marquee">
                     <div class="partner-logo"><img src="/static/logos/microsoft.png" alt="Microsoft"></div>
+                    <div class="partner-logo"><img src="/static/logos/apple.png" alt="Apple"></div>
+                    <div class="partner-logo"><img src="/static/logos/logitech.svg" alt="Logitech"></div>
                     <div class="partner-logo"><img src="/static/logos/hp.png" alt="HP"></div>
                     <div class="partner-logo"><img src="/static/logos/dell.png" alt="Dell"></div>
                     <div class="partner-logo"><img src="/static/logos/quickheal.png" alt="Quick Heal"></div>
@@ -1957,6 +1967,8 @@
                     <div class="partner-logo"><img src="/static/logos/tplink.png" alt="TP-Link"></div>
                     <!-- Duplicate for seamless loop -->
                     <div class="partner-logo"><img src="/static/logos/microsoft.png" alt="Microsoft"></div>
+                    <div class="partner-logo"><img src="/static/logos/apple.png" alt="Apple"></div>
+                    <div class="partner-logo"><img src="/static/logos/logitech.svg" alt="Logitech"></div>
                     <div class="partner-logo"><img src="/static/logos/hp.png" alt="HP"></div>
                     <div class="partner-logo"><img src="/static/logos/dell.png" alt="Dell"></div>
                     <div class="partner-logo"><img src="/static/logos/quickheal.png" alt="Quick Heal"></div>
@@ -1984,7 +1996,7 @@
                     <h3>Contact Information</h3>
                     <p>📍 Suncom Technologies Pvt. Ltd.</p>
                     <p>📧 info@suncom.in</p>
-                    <p>📞 +91-XXX-XXX-XXXX</p>
+                    <p>📞 +91-9999134505</p>
                     <p>🕒 Mon-Fri: 9:00 AM - 6:00 PM</p>
                 </div>
                 <div class="contact-form">
@@ -2244,76 +2256,6 @@
             statsObserver.observe(trustStats);
         }
 
-        // Products dropdown menu behavior
-        const productsDropdown = document.querySelector('.products-dropdown');
-        const productsMenu = document.querySelector('.products-menu');
-        const productsBtn = document.querySelector('.products-btn');
-        let menuTimeout;
-        let isMenuOpen = false;
-
-        if (productsDropdown && productsMenu && productsBtn) {
-            // Check if mobile
-            const isMobile = () => window.innerWidth <= 768;
-
-            // Mobile: Click to toggle
-            productsBtn.addEventListener('click', (e) => {
-                if (isMobile()) {
-                    e.preventDefault();
-                    isMenuOpen = !isMenuOpen;
-                    productsMenu.style.display = isMenuOpen ? 'block' : 'none';
-                }
-            });
-
-            // Desktop: Hover behavior
-            productsBtn.addEventListener('mouseenter', () => {
-                if (!isMobile()) {
-                    clearTimeout(menuTimeout);
-                    productsMenu.style.display = 'block';
-                }
-            });
-
-            productsDropdown.addEventListener('mouseleave', () => {
-                if (!isMobile()) {
-                    menuTimeout = setTimeout(() => {
-                        productsMenu.style.display = 'none';
-                    }, 200);
-                }
-            });
-
-            productsMenu.addEventListener('mouseenter', () => {
-                if (!isMobile()) {
-                    clearTimeout(menuTimeout);
-                    productsMenu.style.display = 'block';
-                }
-            });
-
-            productsMenu.addEventListener('mouseleave', () => {
-                if (!isMobile()) {
-                    menuTimeout = setTimeout(() => {
-                        productsMenu.style.display = 'none';
-                    }, 200);
-                }
-            });
-
-            // Close menu when clicking Contact Us button inside
-            const productsMenuCta = document.querySelector('.products-menu-cta');
-            if (productsMenuCta) {
-                productsMenuCta.addEventListener('click', () => {
-                    productsMenu.style.display = 'none';
-                    isMenuOpen = false;
-                });
-            }
-
-            // Close menu when clicking outside on mobile
-            document.addEventListener('click', (e) => {
-                if (isMobile() && isMenuOpen &&
-                    !productsDropdown.contains(e.target) &&
-                    !productsMenu.contains(e.target)) {
-                    productsMenu.style.display = 'none';
-                    isMenuOpen = false;
-                }
-            });
-        }
     </script>
 </body>
 </html>
