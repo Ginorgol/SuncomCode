@@ -902,7 +902,7 @@
 
         .why-container {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1.2fr 1fr;
             gap: 5rem;
             align-items: center;
             max-width: 1400px;
@@ -979,6 +979,31 @@
             margin-bottom: 2.5rem;
         }
 
+        .why-banner-carousel {
+    position: relative;
+    width: 100%;
+    height: 600px;
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+.why-banner-slide {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    pointer-events: none;
+}
+
+.why-banner-slide.active {
+    opacity: 0.75; /* transparency applied ONLY to active slide */
+}
+
+
         .why-features {
             display: flex;
             flex-direction: column;
@@ -992,17 +1017,25 @@
             align-items: flex-start;
         }
 
-        .feature-icon {
-            width: 45px;
-            height: 45px;
-            background: linear-gradient(135deg, var(--primary), var(--accent));
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            flex-shrink: 0;
-        }
+    .feature-icon {
+        width: 45px;
+        height: 45px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+    }
+
+    .feature-icon img {
+        width: 45px;
+        height: 45px;
+        object-fit: contain;
+    }
+
+    .feature-icon .fallback-emoji {
+        font-size: 1.5rem;
+        line-height: 1;
+    }
 
         .feature-text h3 {
             font-size: 1.1rem;
@@ -1060,10 +1093,13 @@
         }
 
         .clients-grid {
-            display: grid;
-            grid-template-columns: repeat(6, 1fr);
+            display: flex;
+            flex-wrap: wrap;
             gap: 2rem;
             align-items: center;
+            justify-content: center;
+            max-width: 1400px;
+            margin: 0 auto;
         }
 
         .client-logo {
@@ -1073,16 +1109,40 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            min-height: 100px;
+            min-height: 120px;
+            height: 120px;
+            width: 180px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
             transition: transform 0.3s;
-            font-weight: 600;
-            color: var(--gray);
-            text-align: center;
+            position: relative;
         }
 
         .client-logo:hover {
             transform: translateY(-5px);
+        }
+
+        .client-logo img {
+            max-width: 100%;
+            max-height: 70px;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            display: block;
+        }
+
+        .client-logo-text {
+            font-weight: 700;
+            color: var(--secondary);
+            text-align: center;
+            font-size: 0.95rem;
+            display: none;
+            line-height: 1.3;
+        }
+
+        /* Show text fallback when image is hidden */
+        .client-logo img[style*="display: none"] + .client-logo-text,
+        .client-logo img.hidden + .client-logo-text {
+            display: block;
         }
 
         /* Partners Section */
@@ -1098,28 +1158,30 @@
 
         .partners-grid {
             overflow: hidden;
-            position: relative;
-            padding: 2rem 0;
+            width: 100%;
         }
+
 
         .partners-marquee {
             display: flex;
             gap: 2rem;
-            animation: scroll 24s linear infinite;
+            width: max-content;
+            animation: scroll 30s linear infinite;
         }
 
         .partners-marquee:hover {
             animation-play-state: paused;
         }
 
-        @keyframes scroll {
-            0% {
-                transform: translateX(0);
-            }
-            100% {
-                transform: translateX(-50%);
-            }
+    @keyframes scroll {
+        from {
+            transform: translateX(0);
         }
+        to {
+            transform: translateX(-50%);
+        }
+    }
+
 
         .partner-logo {
             background: white;
@@ -1445,6 +1507,78 @@
                 font-size: 2rem;
             }
         }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-icon {
+            width: 30px;
+            height: 30px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .contact-icon img {
+            width: 30px;
+            height: 30px;
+            object-fit: contain;
+        }
+
+        .contact-icon .fallback-emoji {
+            font-size: 1.4rem;
+            line-height: 1;
+        }
+
+        .contact-text {
+            line-height: 1.5;
+        }
+
+        .trust-stat {
+            text-align: center;
+        }
+
+        .trust-stat strong {
+            display: block;
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 0.4rem;
+        }
+
+        .trust-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 0.4rem auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .trust-icon img {
+            width: 60px;
+            height: 60px;
+            object-fit: contain;
+        }
+
+        .trust-icon .fallback-emoji {
+            font-size: 1.9rem;
+            line-height: 1;
+        }
+
+        .trust-text {
+            display: block;
+            font-size: 0.95rem;
+            color: var(--gray);
+            font-weight: 600;
+        }
+
+
     </style>
 </head>
 <body>
@@ -1496,10 +1630,10 @@
                     </div>
                     <div class="carousel-slide slide-secure">
                         <img src="/static/banners/secure.png" alt="We Secure IT" class="slide-image" onerror="this.style.display='none'; this.parentElement.classList.add('image-error');">
-                        <div class="slide-overlay-text">We Secure IT</div>
+                        <div class="slide-overlay-text">We Secure</div>
                         <div class="slide-content-fallback" style="display:none;">
                             <div class="slide-icon">🔒</div>
-                            <div class="slide-text">We Secure IT</div>
+                            <div class="slide-text">We Secure</div>
                         </div>
                     </div>
                     <div class="carousel-dots">
@@ -1835,82 +1969,122 @@
     <section class="why-section">
         <div class="container">
             <div class="why-container">
-                <div class="why-images">
-                    <div class="why-image-wrapper">
-                        <img src="/static/it_support1.png" alt="Professional IT Support" class="why-img why-img-1">
-                    </div>
-                    <div class="why-image-wrapper">
-                        <img src="/static/it_support3.png" alt="Comprehensive IT Services" class="why-img why-img-2">
-                    </div>
-                    <div class="why-image-wrapper">
-                        <img src="/static/it_support4.png" alt="Network Security Solutions" class="why-img why-img-3">
-                    </div>
-                    <div class="why-image-wrapper">
-                        <img src="/static/it_support6.png" alt="Cloud Infrastructure" class="why-img why-img-4">
-                    </div>
-                </div>
+            <div class="why-banner-carousel" id="whyBannerCarousel">
+                <img src="/static/banners/tech1.png" class="why-banner-slide active" alt="Enterprise IT">
+                <img src="/static/banners/tech2.png" class="why-banner-slide" alt="Security & Networking">
+            </div>
+
+
                 <div class="why-text-content">
                     <h2>We Bring The Best Technologies Together</h2>
                     <p class="why-intro"><strong>With 25+ years of trusted expertise</strong>, Suncom Technologies stands as your strategic IT partner, delivering innovative solutions that give you the competitive edge. Our deep understanding of cutting-edge technologies combined with unwavering support makes us the partner you can rely on for long-term success.</p>
 
                     <div class="why-features">
                         <div class="feature-item">
-                            <div class="feature-icon">🏆</div>
+                            <div class="feature-icon">
+                                <img src="/static/whyus/excellence.png" alt="Proven Excellence"
+                                     onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                                <span class="fallback-emoji" style="display:none;">🏆</span>
+                            </div>
                             <div class="feature-text">
                                 <h3>25+ Years of Proven Excellence</h3>
-                                <p>Quarter-century track record of delivering tested and proven technologies. Trusted by industry leaders for consistent reliability.</p>
+                                <p>Quarter-century track record of delivering tested and proven technologies.</p>
                             </div>
                         </div>
                         <div class="feature-item">
-                            <div class="feature-icon">✨</div>
+                            <div class="feature-icon">
+                                <img src="/static/whyus/tailored.png" alt="Tailored Solutions"
+                                     onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                                <span class="fallback-emoji" style="display:none;">✨</span>
+                            </div>
                             <div class="feature-text">
                                 <h3>Tailored Solutions for Your Success</h3>
                                 <p>Customized IT strategies unique to your specific challenges and growth objectives—ensuring maximum ROI.</p>
                             </div>
                         </div>
                         <div class="feature-item">
-                            <div class="feature-icon">🚀</div>
+                            <div class="feature-icon">
+                                <img src="/static/whyus/nextgen.png" alt="Next Generation Solutions"
+                                     onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                                <span class="fallback-emoji" style="display:none;">🚀</span>
+                            </div>
                             <div class="feature-text">
-                                <h3>Next-Generation Technology</h3>
+                                <h3>Next Generation Technology</h3>
                                 <p>Stay ahead with enterprise-grade technologies that drive competitive advantage and innovation.</p>
                             </div>
                         </div>
                         <div class="feature-item">
-                            <div class="feature-icon">💎</div>
+                            <div class="feature-icon">
+                                <img src="/static/whyus/firstClassSupport.png" alt="First Class Support"
+                                     onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                                <span class="fallback-emoji" style="display:none;">💎</span>
+                            </div>
                             <div class="feature-text">
-                                <h3>First-Class Support</h3>
-                                <p>World-class service delivered by certified professionals who build lasting relationships, not just fixes.</p>
+                                <h3>First Class Support</h3>
+                                <p>World class service delivered by certified professionals who build lasting relationships, not just fixes.</p>
                             </div>
                         </div>
                         <div class="feature-item">
-                            <div class="feature-icon">⚡</div>
+                            <div class="feature-icon">
+                                <img src="/static/whyus/unlimitedSupport.png" alt="Unlimited Support"
+                                     onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                                <span class="fallback-emoji" style="display:none;">⚡</span>
+                            </div>
                             <div class="feature-text">
                                 <h3>24/7 Unlimited IT Support</h3>
-                                <p>Expert engineers standing by around the clock with average response time under 15 minutes.</p>
+                                <p>Expert engineers standing by around the clock.</p>
                             </div>
                         </div>
                         <div class="feature-item">
-                            <div class="feature-icon">🤝</div>
+                            <div class="feature-icon">
+                                <img src="/static/whyus/trustOrg.png" alt="Trusted Organizations"
+                                     onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                                <span class="fallback-emoji" style="display:none;">🤝</span>
+                            </div>
                             <div class="feature-text">
-                                <h3>Trusted by 1000+ Organizations</h3>
+                                <h3>Trusted by 500+ Organizations</h3>
                                 <p>Join satisfied clients across healthcare, finance, education, and manufacturing who depend on us.</p>
                             </div>
                         </div>
                     </div>
 
                     <div class="trust-stats">
-                        <div class="trust-stat">
-                            <strong data-target="500">0</strong>
-                            <span>Happy Customers</span>
-                        </div>
-                        <div class="trust-stat">
-                            <strong data-target="200">0</strong>
-                            <span>Projects Completed</span>
-                        </div>
-                        <div class="trust-stat">
-                            <strong data-target="99.9">0</strong>
-                            <span>Uptime Guarantee</span>
-                        </div>
+<div class="trust-stat">
+    <strong data-target="500">0</strong>
+
+    <div class="trust-icon">
+        <img src="/static/whyus/happyCustomers.jpeg" alt="Happy Customers"
+             onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-block';">
+        <span class="fallback-emoji" style="display:none;">😊</span>
+    </div>
+
+    <span class="trust-text">Happy Customers</span>
+</div>
+
+<div class="trust-stat">
+    <strong data-target="200">0</strong>
+
+    <div class="trust-icon">
+        <img src="/static/whyus/projectsCompleted.jpeg" alt="Projects Completed"
+             onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-block';">
+        <span class="fallback-emoji" style="display:none;">📁</span>
+    </div>
+
+    <span class="trust-text">Projects Completed</span>
+</div>
+
+<div class="trust-stat">
+    <strong data-target="99.9">0</strong>
+
+    <div class="trust-icon">
+        <img src="/static/whyus/uptime.jpeg" alt="Uptime Guarantee"
+             onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-block';">
+        <span class="fallback-emoji" style="display:none;">⚡</span>
+    </div>
+
+    <span class="trust-text">Uptime Guarantee</span>
+</div>
+
                     </div>
                 </div>
             </div>
@@ -1925,20 +2099,74 @@
                 <p>Trusted by leading organizations across industries</p>
             </div>
             <div class="clients-grid">
-                <div class="client-logo">Client 1</div>
-                <div class="client-logo">Client 2</div>
-                <div class="client-logo">Client 3</div>
-                <div class="client-logo">Client 4</div>
-                <div class="client-logo">Client 5</div>
-                <div class="client-logo">Client 6</div>
+                <div class="client-logo">
+                    <img src="/static/clients/BlueSalazz.avif" alt="Client 1" onerror="this.style.display='none';">
+                    <span class="client-logo-text">Client 1</span>
+                </div>
+                <div class="client-logo">
+                    <img src="/static/clients/CarDekho.png" alt="Client 2" onerror="this.style.display='none';">
+                    <span class="client-logo-text">Client 2</span>
+                </div>
+                <div class="client-logo">
+                    <img src="/static/clients/CGS.png" alt="Client 3" onerror="this.style.display='none';">
+                    <span class="client-logo-text">Client 3</span>
+                </div>
+                <div class="client-logo">
+                    <img src="/static/clients/FNPWeddings.png" alt="Client 4" onerror="this.style.display='none';">
+                    <span class="client-logo-text">Client 4</span>
+                </div>
+                <div class="client-logo">
+                    <img src="/static/clients/Gepdech.png" alt="Client 5" onerror="this.style.display='none';">
+                    <span class="client-logo-text">Client 5</span>
+                </div>
+                <div class="client-logo">
+                    <img src="/static/clients/IncomeTax.png" alt="Client 6" onerror="this.style.display='none';">
+                    <span class="client-logo-text">Client 6</span>
+                </div>
             </div>
             <div class="clients-grid" style="margin-top: 2rem;">
-                <div class="client-logo">Client 7</div>
-                <div class="client-logo">Client 8</div>
-                <div class="client-logo">Client 9</div>
-                <div class="client-logo">Client 10</div>
-                <div class="client-logo">Client 11</div>
-                <div class="client-logo">Client 12</div>
+                <div class="client-logo">
+                    <img src="/static/clients/InsuranceDekho.png" alt="Client 7" onerror="this.style.display='none';">
+                    <span class="client-logo-text">Client 7</span>
+                </div>
+                <div class="client-logo">
+                    <img src="/static/clients/Metadome.png" alt="Client 8" onerror="this.style.display='none';">
+                    <span class="client-logo-text">Client 8</span>
+                </div>
+                <div class="client-logo">
+                    <img src="/static/clients/NBCC.png" alt="Client 9" onerror="this.style.display='none';">
+                    <span class="client-logo-text">Client 9</span>
+                </div>
+                <div class="client-logo">
+                    <img src="/static/clients/Philips.png" alt="Client 10" onerror="this.style.display='none';">
+                    <span class="client-logo-text">Client 10</span>
+                </div>
+                <div class="client-logo">
+                    <img src="/static/clients/tajhotels.png" alt="Client 11" onerror="this.style.display='none';">
+                    <span class="client-logo-text">Client 11</span>
+                </div>
+                <div class="client-logo">
+                    <img src="/static/clients/economist.png" alt="Client 12" onerror="this.style.display='none';">
+                    <span class="client-logo-text">Client 12</span>
+                </div>
+            </div>
+            <div class="clients-grid" style="margin-top: 2rem;">
+                <div class="client-logo">
+                    <img src="/static/clients/Udman.avif" alt="Client 7" onerror="this.style.display='none';">
+                    <span class="client-logo-text">Client 7</span>
+                </div>
+                <div class="client-logo">
+                    <img src="/static/clients/VMG.png" alt="Client 8" onerror="this.style.display='none';">
+                    <span class="client-logo-text">Client 8</span>
+                </div>
+                <div class="client-logo">
+                    <img src="/static/clients/WorldEnergy.png" alt="Client 9" onerror="this.style.display='none';">
+                    <span class="client-logo-text">Client 9</span>
+                </div>
+                <div class="client-logo">
+                    <img src="/static/clients/WorldHealth.png" alt="Client 10" onerror="this.style.display='none';">
+                    <span class="client-logo-text">Client 10</span>
+                </div>
             </div>
         </div>
     </section>
@@ -1994,10 +2222,43 @@
             <div class="contact-container">
                 <div class="contact-info">
                     <h3>Contact Information</h3>
-                    <p>📍 Suncom Technologies Pvt. Ltd.</p>
-                    <p>📧 info@suncom.in</p>
-                    <p>📞 +91-9999134505</p>
-                    <p>🕒 Mon-Fri: 9:00 AM - 6:00 PM</p>
+
+                    <p class="contact-item">
+                        <span class="contact-icon">
+                            <img src="/static/contact/location.jpeg" alt="Location"
+                                 onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-block';">
+                            <span class="fallback-emoji" style="display:none;">📍</span>
+                        </span>
+                        <span class="contact-text">
+                            Suncom Technologies Pvt. Ltd.<br>
+                            C-2, LGF, Kanu Chambers, Sanwal Nagar,<br>
+                            Sadiq Nagar, New Delhi (110049)
+                        </span>
+                    </p>
+                    <p class="contact-item">
+                        <span class="contact-icon">
+                            <img src="/static/contact/email.jpeg" alt="Email"
+                                 onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-block';">
+                            <span class="fallback-emoji" style="display:none;">📧</span>
+                        </span>
+                        <span class="contact-text">info@suncom.net.in</span>
+                    </p>
+                    <p class="contact-item">
+                        <span class="contact-icon">
+                            <img src="/static/contact/phone.jpeg" alt="Phone"
+                                 onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-block';">
+                            <span class="fallback-emoji" style="display:none;">📞</span>
+                        </span>
+                        <span class="contact-text">+91-9999134505</span>
+                    </p>
+                <p class="contact-item">
+                    <span class="contact-icon">
+                        <img src="/static/contact/time.jpeg" alt="Business Hours"
+                             onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-block';">
+                        <span class="fallback-emoji" style="display:none;">🕒</span>
+                    </span>
+                    <span class="contact-text">Mon–Fri: 9:00 AM – 6:00 PM</span>
+                </p>
                 </div>
                 <div class="contact-form">
                     <form id="contactForm">
@@ -2255,6 +2516,20 @@
         if (trustStats) {
             statsObserver.observe(trustStats);
         }
+
+        (function () {
+    const carousel = document.getElementById('whyBannerCarousel');
+    if (!carousel) return;
+
+    const slides = carousel.querySelectorAll('.why-banner-slide');
+    let index = 0;
+
+    setInterval(() => {
+        slides[index].classList.remove('active');
+        index = (index + 1) % slides.length;
+        slides[index].classList.add('active');
+    }, 4000);
+})();
 
     </script>
 </body>
